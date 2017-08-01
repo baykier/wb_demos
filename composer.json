@@ -1,0 +1,21 @@
+{
+    "name": "baykier/wb_sdk",
+    "description": "哪儿借开放平台sdk",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "baykier",
+            "email": "1035666345@qq.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "autoload": {
+        "psr-4": {
+            "Wb\\": "src"
+        }
+    },
+    "require": {
+        "fguillot/json-rpc": "@stable"
+    }
+}
