@@ -5,7 +5,7 @@
  * Date: 2017/8/1
  * Time: 17:16
  */
-use Wb\Client;
+use Wb\Server;
 use Wb\Request;
 
 
@@ -64,13 +64,6 @@ LWno53nX2HoDN6r8fcw5oLJovnEyc2Y1LRRKL2zrK9zBfzZhA85+NDwQwK6EbII1
 3pur3Q1+1+k+Ts6EmFCM9YXiz7XCFskCogWHOb7B+4QXlb3kCz9/C+K+Vw==
 -----END CERTIFICATE-----
 ');
+$server = new Server();
+echo $server->execute();
 
-$client = new Client();
-$client->setAppId('170040');
-$client->setApiUrl('http://dev.wb_sdk/index.php');
-$client->setRsaPrivateKey(RSA_PRIVATE_KEY);
-$client->setMethod('queryOrderStatus');
-$client->setBizData(array('order_num' => '1212'));
-$resp = $client->send();
-
-var_dump($resp);

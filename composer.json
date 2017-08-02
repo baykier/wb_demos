@@ -16,7 +16,6 @@
         }
     },
     "require": {
-        "fguillot/json-rpc": "@stable",
-        "paragonie/easyrsa": "^0.5.0"
+        "fguillot/json-rpc": "@stable"
     }
 }

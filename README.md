@@ -11,5 +11,5 @@ cd wb_sdk
 
 composer install
 
-php exzmple.php 
+php exzmple.php
 ```
