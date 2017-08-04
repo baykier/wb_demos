@@ -67,7 +67,7 @@ LWno53nX2HoDN6r8fcw5oLJovnEyc2Y1LRRKL2zrK9zBfzZhA85+NDwQwK6EbII1
 
 $client = new Client();
 $client->setAppId('170040');
-$client->setApiUrl('http://dev.borrow.cn/open.php');
+$client->setApiUrl('http://dev.wb_sdk/server.php');
 $client->setRsaPrivateKey(RSA_PRIVATE_KEY);
 $client->setMethod('queryOrderStatus');
 $client->setBizData(array('order_num' => '1212'));

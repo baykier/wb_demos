@@ -121,7 +121,7 @@ class Client
         }
 
         $client = new JsonRpcClient($this->apiUrl);
-        $client->getHttpClient()->withDebug();
+        //$client->getHttpClient()->withDebug();
         $params = $this->request->packParams();
         $response = $client->execute($this->method,$params);
         return $response;
