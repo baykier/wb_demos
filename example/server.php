@@ -5,10 +5,10 @@
  * Date: 2017/8/1
  * Time: 17:16
  */
-use Wb\Server;
+use Wb\Server as BaseServer;
+use JsonRPC\Exception\ServerErrorException;
 
-
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '../vendor/autoload.php';
 
 
 // const rsa public key
@@ -34,6 +34,33 @@ LWno53nX2HoDN6r8fcw5oLJovnEyc2Y1LRRKL2zrK9zBfzZhA85+NDwQwK6EbII1
 3pur3Q1+1+k+Ts6EmFCM9YXiz7XCFskCogWHOb7B+4QXlb3kCz9/C+K+Vw==2
 -----END CERTIFICATE-----
 ');
+
+/**
+ * 自定义服务端接口
+ * Class Server
+ */
+class Server extends BaseServer
+{
+    /**
+     *  查询订单状态接口
+     * @JsonRpcMethod query order status
+     * @param $params
+     * @return array
+     * @throws ServerErrorException
+     */
+    public function queryOrderStatus($params)
+    {
+        $this->parseParams($params);
+        // 业务逻辑
+
+        // 返回订单状态
+        return array(
+            'order_num' => '17170031080415815952',
+            'status' => '11',
+            'update_time' => '2017-08-13 14:34:00',
+        );
+    }
+}
 $server = new Server();
 $server->setRsaPublicKey(RSA_PUBLIC_KEY);
 echo $server->execute();

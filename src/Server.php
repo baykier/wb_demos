@@ -64,16 +64,4 @@ class Server extends JsonRpcServer
             throw new ServerErrorException($e->getMessage(),$e->getCode());
         }
     }
-
-    /**
-     * @JsonRpcMethod query order status
-     * @param $params
-     * @return array
-     * @throws ServerErrorException
-     */
-    public function queryOrderStatus($params)
-    {
-        $this->parseParams($params);
-        return array();
-    }
 }
