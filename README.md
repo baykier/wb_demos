@@ -62,7 +62,8 @@ var_dump($resp);
 2. 作为server使用 参考[server.php](./example/server.php)
 
 ```
-use Wb\Server;
+use Wb\Server as BaseServer;
+use JsonRPC\Exception\ServerErrorException;
 
 require_once __DIR__ . '../vendor/autoload.php';
 
@@ -91,6 +92,32 @@ LWno53nX2HoDN6r8fcw5oLJovnEyc2Y1LRRKL2zrK9zBfzZhA85+NDwQwK6EbII1
 -----END CERTIFICATE-----
 ');
 
+/**
+ * 自定义服务端接口
+ * Class Server
+ */
+class Server extends BaseServer
+{
+    /**
+     *  查询订单状态接口
+     * @JsonRpcMethod query order status
+     * @param $params
+     * @return array
+     * @throws ServerErrorException
+     */
+    public function queryOrderStatus($params)
+    {
+        $this->parseParams($params);
+        // 业务逻辑
+
+        // 返回订单状态
+        return array(
+            'order_num' => '17170031080415815952',
+            'status' => '11',
+            'update_time' => '2017-08-13 14:34:00',
+        );
+    }
+}
 $server = new Server();
 $server->setRsaPublicKey(RSA_PUBLIC_KEY);
 echo $server->execute();
