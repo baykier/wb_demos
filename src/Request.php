@@ -166,6 +166,7 @@ class Request
             return false;
         }
         $check = openssl_verify($this->generateSignStr(),base64_decode($this->formatData['sign']),$rsaPubKeyHandle);
+        openssl_free_key($rsaPubKeyHandle);
         return (bool) ($check == 1);
     }
 
