@@ -233,30 +233,19 @@ class Request
     /**
      * @param $name
      * @return mixed
-     * @throws \Exception
      */
     public function __get($name)
     {
-        if (!isset($this->formatData['biz_data'][$name])) {
-            throw new \Exception(sprintf("The [%s] Param Not Exists",$name));
-        }
-        return $this->formatData['biz_data'][$name];
+        return isset($this->formatData['biz_data'][$name]) ? $this->formatData['biz_data'][$name] : '';
     }
 
     /**
-     * @validate the biz_data
+     * @used for isset(),empty()
      * @param $name
      * @return bool
-     * @throws \Exception
      */
     public function __isset($name)
     {
-        if (!isset($this->formatData['biz_data'][$name])) {
-            throw new \Exception(sprintf("The [%s] Param Not Exists",$name));
-        }
-        if (!empty($this->formatData['biz_data'][$name])) {
-            return true;
-        }
-        return false;
+        return isset($this->formatData['biz_data'][$name]) ? true : false;
     }
 }
