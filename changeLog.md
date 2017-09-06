@@ -1,6 +1,12 @@
 变更历史
 =======
 
+v1.2.0
+------
+
+- 签名字典排序算法由按照**value**排序改为按照**key**排序
+- *composer.json*加入php扩展openssl依赖(ext-openssl)
+
 v1.1.0
 ------
 
