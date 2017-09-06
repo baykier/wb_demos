@@ -137,7 +137,7 @@ class Request
     protected function generateSignStr()
     {
         $data = $this->formatData;
-        asort($data);
+        ksort($data);
         $str = '';
         foreach ($data as $key => $value) {
             if (!empty($value) && $key != 'sign') {

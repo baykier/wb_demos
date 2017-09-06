@@ -19,6 +19,7 @@
         }
     },
     "require": {
+        "ext-openssl":"*",
         "fguillot/json-rpc": "@stable"
     },
     "require-dev": {
